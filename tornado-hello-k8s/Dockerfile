@@ -3,4 +3,4 @@ WORKDIR /app/
 ADD hello.py requirements.txt /app/
 RUN pip install -r requirements.txt
 EXPOSE 9000
-CMD ["python", /app/hello.py]
+CMD ["/usr/local/bin/python", /app/hello.py]
