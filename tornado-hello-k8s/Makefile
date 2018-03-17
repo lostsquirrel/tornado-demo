@@ -26,6 +26,7 @@ code:
 	git reset --hard HEAD && git pull
 
 build:
+    cat $(VERSION) > version.txt
 	docker build --no-cache -t $(VERSIONED_IMAGE) .
 
 test:

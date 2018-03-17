@@ -8,7 +8,7 @@ ip_address = socket.gethostbyname(hostname)
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello, world from host %s(%s)" % (hostname, ip_address))
+        self.write(msg)
 
 
 def make_app():
@@ -20,4 +20,8 @@ def make_app():
 if __name__ == "__main__":
     app = make_app()
     app.listen(9000)
+    fh = open('version.txt')
+    ver = fh.read()
+    fh.close()
+    msg = "Hello, world | from host %s(%s) | %s" % (hostname, ip_address, ver)
     tornado.ioloop.IOLoop.current().start()
