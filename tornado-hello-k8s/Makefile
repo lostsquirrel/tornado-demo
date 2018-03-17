@@ -9,7 +9,7 @@ REGISTRY_NAMESPACE=lisong
 VERSION=v1.0
 PROJECT_NAME=tornado-hello-k8s
 
-IMAGE_TAG=$(VERSION).$(shell git rev-parse --short HEAD)
+IMAGE_TAG=$(VERSION)
 IMAGE=$(REGISTRY)/$(REGISTRY_NAMESPACE)/$(PROJECT_NAME)
 VERSIONED_IMAGE=$(IMAGE):$(IMAGE_TAG)
 
@@ -26,7 +26,7 @@ code:
 	git reset --hard HEAD && git pull
 
 build:
-	cat $VERSION > version.txt
+	echo $(VERSION) > version.txt
 	docker build --no-cache -t $(VERSIONED_IMAGE) .
 
 test:
