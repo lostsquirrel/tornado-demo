@@ -3,7 +3,3 @@ services:
   tornado-test:
     image: ${VERSIONED_IMAGE}
     network_mode: host
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "tcp://192.168.10.216:24225"
