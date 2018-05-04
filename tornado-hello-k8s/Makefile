@@ -33,6 +33,6 @@ test:
 	docker run --rm $(VERSIONED_IMAGE)
 
 compose:
-    docker-compose up
+	docker-compose up
 
 .PHONY: push pull build test start
