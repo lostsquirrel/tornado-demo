@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSocket demo</title>
+    </head>
+    <body>
+        <script>
+        var server = "ws://192.168.10.216:8090/"
+        var server = "ws://a:b@192.168.10.10:8090/close"
+        var server = "ws://a:b@127.0.0.1:8090/close"
+        var server = "ws://a:b@192.168.10.10:8090/"
+            var ws = new WebSocket(server),
+                messages = document.createElement('ul');
+            ws.onmessage = function (event) {
+                var messages = document.getElementsByTagName('ul')[0],
+                    message = document.createElement('li'),
+                    content = document.createTextNode(event.data);
+                message.appendChild(content);
+                messages.appendChild(message);
+            };
+            document.body.appendChild(messages);
+            ws.onopen = function(event) {
+              ws.send("ok!")
+            }
+        </script>
+    </body>
+</html>
